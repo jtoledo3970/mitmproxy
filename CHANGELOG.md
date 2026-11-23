@@ -7,6 +7,9 @@
 
 ## Unreleased: mitmproxy next
 
+- Fix a file descriptor leak where upstream connections were not closed if their handler was
+  cancelled while waiting to process an event, which could exhaust FDs on long-lived HTTP/2
+  reverse-proxy connections.
 - mitmweb: Add a clear button to the filter inputs (`Search`, `Highlight`, `Intercept`).
   ([#8626](https://github.com/mitmproxy/mitmproxy/pull/8626), @Anto1368)
 - Show the traceback when client replay crashes.
